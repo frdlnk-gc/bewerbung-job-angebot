@@ -78,7 +78,7 @@ button{font-family:inherit}
 .tb-cta{flex:none;display:inline-flex;align-items:center;justify-content:center;min-height:40px;padding:8px 16px;border-radius:999px;background:var(--primary);color:var(--on-primary);font-size:13.5px;font-weight:700;text-decoration:none;box-shadow:0 4px 14px rgba(15,23,32,.16)}
 
 /* Overflow-Guard (Pflicht, Freddy 21.08.): Text darf NIE über den Rand seiner Box hinausgehen */
-h1,h2,h3,h4,p,li,span,a,label,button,.badge,.hero-benefit,.htile,.option,.uf,.karte-label{min-width:0;overflow-wrap:break-word;hyphens:auto;-webkit-hyphens:auto}
+h1,h2,h3,h4,p,li,span,a,label,button,.badge,.htile,.option,.uf,.karte-label{min-width:0;overflow-wrap:break-word;hyphens:auto;-webkit-hyphens:auto}
 
 /* ---------- Hero ---------- */
 .hero{position:relative;background:linear-gradient(158deg,color-mix(in srgb,var(--primary) 86%,#0b0f12) 0%,var(--primary) 52%,color-mix(in srgb,var(--primary) 74%,var(--secondary)) 100%);color:var(--on-primary);overflow:hidden}
@@ -89,9 +89,7 @@ h1,h2,h3,h4,p,li,span,a,label,button,.badge,.hero-benefit,.htile,.option,.uf,.ka
 .hero h1{font-size:clamp(26px,7vw,40px);line-height:1.12;font-weight:800;letter-spacing:-.025em;margin-bottom:10px}
 .hero h1 .h1-sub{display:block;font-size:.58em;font-weight:700;opacity:.92;margin-top:8px;letter-spacing:-.01em}
 .hero-stellesub{font-size:14px;font-weight:600;opacity:.85;margin:-2px 0 12px}
-.hero-benefit{display:inline-block;background:var(--primary);color:var(--chip-ink,#fff);font-size:14.5px;font-weight:700;padding:9px 14px;border-radius:12px;margin-bottom:20px;max-width:100%;box-shadow:0 8px 22px rgba(0,0,0,.25)}
-.hero:not(.has-photo) .hero-benefit{background:color-mix(in srgb,var(--on-primary) 15%,transparent);color:var(--on-primary);box-shadow:none;border:1px solid color-mix(in srgb,var(--on-primary) 26%,transparent)}
-.hero-kicker{font-size:11.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;opacity:.8;margin-bottom:5px}
+.hero:not(.has-photo) .hero-kicker{font-size:11.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;opacity:.8;margin-bottom:5px}
 .hero-q-title{font-size:17px;font-weight:800;letter-spacing:-.01em;margin-bottom:12px}
 .hero-tiles{display:flex;flex-direction:column;gap:9px;max-width:440px}
 .htile{display:flex;align-items:center;gap:11px;width:100%;min-height:54px;text-align:left;cursor:pointer;background:rgba(255,255,255,.97);border:1.5px solid rgba(255,255,255,.5);border-radius:14px;padding:11px 14px;font-family:inherit;font-size:15.5px;font-weight:700;color:var(--ink);box-shadow:0 10px 26px rgba(0,0,0,.25);transition:transform .12s,box-shadow .2s}
@@ -315,11 +313,10 @@ footer{background:#fff;border-top:1px solid var(--line);padding:30px 16px 34px;t
 <section class="hero has-photo" style="--hero-photo:url('img/hero.jpg')">
   <div class="hero-in">
     <span class="badge" data-animate>📍 Deutschlandweit · in deiner Region</span>
-    <h1 data-animate style="--d:.06s">Dein neuer Job in der grünen Branche<span class="h1-sub">Einmal bewerben – die besten Betriebe deiner Region melden sich bei dir</span></h1>
+    <h1 data-animate style="--d:.06s">Dein neuer Job in der grünen Branche<span class="h1-sub">Einmal bewerben – die besten Betriebe melden sich bei dir</span></h1>
 
-    <p class="hero-benefit" data-animate style="--d:.12s">Betriebe melden sich bei dir – nicht umgekehrt</p>
     <div class="hero-q" data-animate style="--d:.18s">
-      <p class="hero-kicker">In 60 Sek. zum unverbindlichen Job-Angebot</p>
+      <p class="hero-kicker">In 60 Sekunden erledigt</p>
       <p class="hero-q-title">In welchem Bereich bist du unterwegs?</p>
       <div class="hero-tiles" id="heroFach"></div>
     </div>
