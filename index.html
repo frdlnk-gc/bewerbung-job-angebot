@@ -797,6 +797,7 @@ function go(id){
   document.getElementById('progStep').textContent = LABELS[id]||'';
   /* Kopfzeile wechselt in Teil B; auf den Erfolgs-Screens ist sie redundant und weicht den Karten */
   document.getElementById('funnelCard').classList.toggle('done-mode', id==='s-done'||id==='s-fertig');
+  if(id==='s-b-gehalt') gehaltVorbelegen();
   var head=document.querySelector('.funnel-head');
   if(id.indexOf('s-b')===0 || id==='s-fertig'){
     head.querySelector('h2').textContent='Profil vervollständigen';
@@ -858,13 +859,19 @@ card.addEventListener('click',function(e){
 });
 
 /* Gehalt-Slider: Startwert richtet sich nach der gewaehlten Position (wie v1) */
+/* Startwert erst beim Betreten des Screens setzen: beim Mount steht die Position
+   noch nicht fest, sonst startet der Slider immer auf dem Default von 3200. */
+function gehaltVorbelegen(){
+  var sl=document.getElementById('gehaltSlider'), out=document.getElementById('gehaltWert');
+  if(!sl||!out||S.gehaltAngefasst) return;
+  sl.value=GEHALT_DEFAULT[S.positionCls]||3200;
+  out.textContent=Number(sl.value).toLocaleString('de-DE');
+}
 function initGehalt(){
   var sl=document.getElementById('gehaltSlider'), out=document.getElementById('gehaltWert');
   if(!sl||!out) return;
-  var start=GEHALT_DEFAULT[S.positionCls]||3200;
-  sl.value=start;
   var show=function(){ out.textContent=Number(sl.value).toLocaleString('de-DE'); };
-  show();
+  gehaltVorbelegen();
   sl.addEventListener('input',function(){ S.gehaltAngefasst=true; S.gehalt=Number(sl.value); show(); });
   document.getElementById('gehaltWeiter').addEventListener('click',function(){
     if(!S.gehaltAngefasst){ S.gehalt=Number(sl.value); S.gehaltAngefasst=true; }
